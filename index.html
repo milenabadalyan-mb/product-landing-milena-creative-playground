@@ -7,31 +7,70 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Sticky Navbar -->
+    <nav class="navbar sticky">
+        <div class="container">
+            <div class="logo">CreativeStudio</div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#benefits" class="nav-link">Benefits</a></li>
+                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                <li><a href="#pricing" class="nav-link">Pricing</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <!-- Header / Hero Section -->
-    <header class="hero">
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">CreativeStudio</div>
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-links">
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#benefits">Benefits</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                </ul>
-            </div>
-        </nav>
+    <header id="hero" class="hero">
         
         <div class="hero-content container">
             <h1 class="hero-title">CreativeStudio</h1>
             <p class="hero-tagline">Design stunning visuals in seconds with AI-powered creative tools</p>
-            <button class="cta-button">Start Creating Free</button>
+            <button class="cta-button" id="openModalBtn">Start Creating Free</button>
         </div>
     </header>
+
+    <!-- CTA Modal -->
+    <div id="ctaModal" class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <h2 class="modal-title">Get Started with CreativeStudio</h2>
+            <p class="modal-subtitle">Start your free trial today. No credit card required.</p>
+            <form id="ctaForm" class="cta-form">
+                <div class="form-group">
+                    <label for="userName">Full Name *</label>
+                    <input 
+                        type="text" 
+                        id="userName" 
+                        name="userName" 
+                        placeholder="Enter your full name"
+                        required
+                    >
+                    <span class="error-message" id="nameError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="userEmail">Email Address *</label>
+                    <input 
+                        type="email" 
+                        id="userEmail" 
+                        name="userEmail" 
+                        placeholder="your.email@example.com"
+                        required
+                    >
+                    <span class="error-message" id="emailError"></span>
+                </div>
+                <button type="submit" class="submit-button">Start Free Trial</button>
+                <p class="form-disclaimer">By signing up, you agree to our Terms of Service and Privacy Policy.</p>
+            </form>
+        </div>
+    </div>
 
     <main>
         <!-- Product Showcase Section -->
