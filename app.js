@@ -149,6 +149,138 @@ window.addEventListener('load', () => {
     }, 100);
 });
 
+// ============================================
+// GALLERY FILTERING
+// ============================================
+const filterButtons = document.querySelectorAll('.filter-btn');
+const galleryItems = document.querySelectorAll('.gallery-item');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        
+        const filter = this.getAttribute('data-filter');
+        
+        // Filter gallery items
+        galleryItems.forEach(item => {
+            const category = item.getAttribute('data-category');
+            
+            if (filter === 'all' || category === filter) {
+                item.classList.remove('hidden');
+            } else {
+                item.classList.add('hidden');
+            }
+        });
+    });
+});
+
+// ============================================
+// LIGHTBOX FUNCTIONALITY
+// ============================================
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxClose = document.querySelector('.lightbox-close');
+const lightboxPrev = document.querySelector('.lightbox-prev');
+const lightboxNext = document.querySelector('.lightbox-next');
+const lightboxCategory = document.querySelector('.lightbox-category');
+const lightboxTitle = document.querySelector('.lightbox-title');
+const lightboxCounter = document.querySelector('.lightbox-counter');
+
+let currentImageIndex = 0;
+let visibleImages = [];
+
+// Update visible images array based on current filter
+function updateVisibleImages() {
+    visibleImages = Array.from(galleryItems).filter(item => !item.classList.contains('hidden'));
+}
+
+// Open lightbox
+function openLightbox(index) {
+    updateVisibleImages();
+    currentImageIndex = index;
+    updateLightboxContent();
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// Close lightbox
+function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Update lightbox content
+function updateLightboxContent() {
+    if (visibleImages.length === 0) return;
+    
+    const currentItem = visibleImages[currentImageIndex];
+    const img = currentItem.querySelector('img');
+    const overlay = currentItem.querySelector('.gallery-overlay');
+    const category = overlay.querySelector('.gallery-category').textContent;
+    const title = overlay.querySelector('h3').textContent;
+    
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightboxCategory.textContent = category;
+    lightboxTitle.textContent = title;
+    lightboxCounter.textContent = `${currentImageIndex + 1} / ${visibleImages.length}`;
+}
+
+// Navigate to previous image
+function showPreviousImage() {
+    currentImageIndex = (currentImageIndex - 1 + visibleImages.length) % visibleImages.length;
+    updateLightboxContent();
+}
+
+// Navigate to next image
+function showNextImage() {
+    currentImageIndex = (currentImageIndex + 1) % visibleImages.length;
+    updateLightboxContent();
+}
+
+// Add click event to gallery items
+galleryItems.forEach((item, index) => {
+    item.addEventListener('click', () => {
+        updateVisibleImages();
+        const visibleIndex = visibleImages.indexOf(item);
+        openLightbox(visibleIndex);
+    });
+});
+
+// Lightbox controls
+lightboxClose.addEventListener('click', closeLightbox);
+lightboxPrev.addEventListener('click', showPreviousImage);
+lightboxNext.addEventListener('click', showNextImage);
+
+// Close lightbox when clicking outside image
+lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+        closeLightbox();
+    }
+});
+
+// ============================================
+// KEYBOARD NAVIGATION FOR LIGHTBOX
+// ============================================
+document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+    
+    switch(e.key) {
+        case 'Escape':
+            closeLightbox();
+            break;
+        case 'ArrowLeft':
+            showPreviousImage();
+            break;
+        case 'ArrowRight':
+            showNextImage();
+            break;
+    }
+});
+
 // Console message for developers
 console.log('%c🎨 CreativeStudio Landing Page', 'font-size: 20px; color: #7C3AED; font-weight: bold;');
 console.log('%cBuilt with ❤️ using vanilla HTML, CSS, and JavaScript', 'font-size: 14px; color: #EC4899;');
+console.log('%c✨ Features: Gallery • Lightbox • Filters • Keyboard Navigation', 'font-size: 12px; color: #3B82F6;');
