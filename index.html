@@ -20,6 +20,7 @@
                 <ul class="nav-links">
                     <li><a href="#features">Features</a></li>
                     <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#pricing">Pricing</a></li>
                 </ul>
@@ -102,6 +103,82 @@
                 </div>
             </div>
         </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery-section">
+            <div class="container">
+                <h2 class="section-title">Our Creative Work</h2>
+                
+                <!-- Filter Buttons -->
+                <div class="gallery-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="ui">UI Design</button>
+                    <button class="filter-btn" data-filter="api">API Graphics</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile</button>
+                </div>
+                
+                <!-- Gallery Grid -->
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-category="ui">
+                        <img src="assets/andrea-de-santis-zwd435-ewb4-unsplash.jpg" alt="UI Design Project 1">
+                        <div class="gallery-overlay">
+                            <span class="gallery-category">UI Design</span>
+                            <h3>Modern Dashboard</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="mobile">
+                        <img src="assets/boliviainteligente-kECRXz0m42A-unsplash.jpg" alt="Mobile App Design">
+                        <div class="gallery-overlay">
+                            <span class="gallery-category">Mobile</span>
+                            <h3>Mobile App Interface</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="api">
+                        <img src="assets/ecliptic-graphic-zByLAu-QFUQ-unsplash.jpg" alt="API Visualization">
+                        <div class="gallery-overlay">
+                            <span class="gallery-category">API Graphics</span>
+                            <h3>API Data Visualization</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="ui">
+                        <img src="assets/growtika-Jcw-i0fSqXg-unsplash.jpg" alt="UI Design Project 2">
+                        <div class="gallery-overlay">
+                            <span class="gallery-category">UI Design</span>
+                            <h3>Creative Landing Page</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="mobile">
+                        <img src="assets/igor-omilaev-eGGFZ5X2LnA-unsplash.jpg" alt="Mobile Design">
+                        <div class="gallery-overlay">
+                            <span class="gallery-category">Mobile</span>
+                            <h3>Mobile Experience</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="api">
+                        <img src="assets/steve-johnson-_0iV9LmPDn0-unsplash.jpg" alt="API Graphics">
+                        <div class="gallery-overlay">
+                            <span class="gallery-category">API Graphics</span>
+                            <h3>Abstract Data Flow</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox -->
+        <div id="lightbox" class="lightbox">
+            <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+            <button class="lightbox-prev" aria-label="Previous image">‹</button>
+            <button class="lightbox-next" aria-label="Next image">›</button>
+            <div class="lightbox-content">
+                <img id="lightbox-img" src="" alt="">
+                <div class="lightbox-caption">
+                    <span class="lightbox-category"></span>
+                    <h3 class="lightbox-title"></h3>
+                    <p class="lightbox-counter"></p>
+                </div>
+            </div>
+        </div>
 
         <!-- Testimonials Section -->
         <section id="testimonials" class="testimonials">
