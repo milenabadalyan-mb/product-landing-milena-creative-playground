@@ -167,7 +167,7 @@ Contributions, issues, and feature requests are welcome!
 
 ---
 
-**Built with ❤️ using vanilla HTML, CSS, and JavaScript**
 
 *Last updated: February 2026*
+
 
