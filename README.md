@@ -126,7 +126,7 @@ Potential features for future versions:
 
 ## 🌐 Live Demo
 
-🔗 **[View Live Demo](#)** *(Add your deployment URL here)*
+🔗 **[View Live Demo](#)** *(https://lp-creativestudio.netlify.app)*
 
 ### Deployment Options
 - **GitHub Pages** - Free hosting for static sites
@@ -170,3 +170,4 @@ Contributions, issues, and feature requests are welcome!
 **Built with ❤️ using vanilla HTML, CSS, and JavaScript**
 
 *Last updated: February 2026*
+
